@@ -3,17 +3,12 @@ package demo.app.troika_game;
 
 import static demo.app.troika_game.MainActivity.changeViews;
 import static demo.app.troika_game.MainActivity.list;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Random;
 
 public class GetInfoAsync extends AsyncTask<Void, Void, Void> {
 

@@ -14,9 +14,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323"
+        app:layout_constraintVertical_bias="0.029"
         app:srcCompat="@drawable/logo" />
 
     <TextView
@@ -37,20 +38,164 @@
         app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <LinearLayout
         android:id="@+id/login"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="212dp"
-        android:background="@drawable/gradient_button"
-        android:fontFamily="@font/moscowsansregular"
-        android:text="Квиз"
-        android:textSize="17sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Вход"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/moscowsansregular"/>
+
+        <EditText
+            android:id="@+id/email_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="Ваш email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textColor="#80FFFFFF"
+            android:textColorHint="#BFBFBF" />
+
+        <EditText
+            android:id="@+id/pass_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:hint="Пароль"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColor="#80FFFFFF"
+            android:textColorHint="#BFBFBF" />
+
+        <Button
+            android:id="@+id/log"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_button"
+            android:fontFamily="@font/moscowsansregular"
+            android:text="Войти"
+            android:textSize="17sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/goToReg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="Еще нет аккаунта? Зарегистрируйте!"
+            android:textColor="#CCCCCC"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/registration"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Регистрация"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/moscowsansregular"/>
+
+        <EditText
+            android:id="@+id/email_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:hint="Ваш email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:textColor="#80FFFFFF"
+            android:textColorHint="#BFBFBF" />
+
+        <EditText
+            android:id="@+id/pass_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:hint="Пароль"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColor="#80FFFFFF"
+            android:textColorHint="#BFBFBF" />
+
+        <EditText
+            android:id="@+id/repeatPass_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:hint="Повторите пароль"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:textColor="#80FFFFFF"
+            android:textColorHint="#BFBFBF" />
+
+        <Button
+            android:id="@+id/reg"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_button"
+            android:fontFamily="@font/moscowsansregular"
+            android:text="Зарегистрироваться"
+            android:textSize="17sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/goToLog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="Уже есть аккаунт? Войти"
+            android:textColor="#CCCCCC"
+            android:textStyle="italic" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

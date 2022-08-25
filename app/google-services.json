@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "184248497807",
+    "project_id": "drivehack-troika-login-reg",
+    "storage_bucket": "drivehack-troika-login-reg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184248497807:android:03ba53ae15adef0ca8a2fa",
+        "android_client_info": {
+          "package_name": "demo.app.troika_game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "184248497807-of9o1c72flo11ngo0peffh5ag5j3ts1c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "demo.app.troika_game",
+            "certificate_hash": "895007f833910d678dc9b5fab250e2a2f9945f19"
+          }
+        },
+        {
+          "client_id": "184248497807-up31qmhu6lnat774pj52u6o2ur7v372v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWw5IdfQmvDaVgphCCG_SvMkh9v4vps3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "184248497807-up31qmhu6lnat774pj52u6o2ur7v372v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
