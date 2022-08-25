@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/Desktop/Troika_Game/app/src/main/res/drawable/back_imageview.xml" value="0.1055" />
+        <entry key="..\:/Users/User/Desktop/Troika_Game/app/src/main/res/drawable/gradient_button.xml" value="0.1055" />
+        <entry key="..\:/Users/User/Desktop/Troika_Game/app/src/main/res/layout/activity_hello.xml" value="0.17654508611955422" />
         <entry key="..\:/Users/User/Desktop/Troika_Game/app/src/main/res/layout/activity_main.xml" value="0.36354166666666665" />
       </map>
     </option>
