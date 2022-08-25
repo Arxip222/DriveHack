@@ -46,6 +46,7 @@ public class HelloActivity extends AppCompatActivity {
         goToLog = findViewById(R.id.goToLog);
         goToReg = findViewById(R.id.goToReg);
         auth = FirebaseAuth.getInstance();
+        checkUser();
 
         quiz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,7 +128,9 @@ public class HelloActivity extends AppCompatActivity {
         auth.signInWithEmailAndPassword(email, pass).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-
+                Toast.makeText(HelloActivity.this, "Успешная авторизация!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HelloActivity.this, ProfileActivity.class);
+                startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -138,5 +141,13 @@ public class HelloActivity extends AppCompatActivity {
     }
     boolean isEmailValid(CharSequence email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    public void checkUser(){
+        FirebaseUser user = auth.getCurrentUser();
+        if (user != null){
+            Intent intent = new Intent(HelloActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        }
     }
 }

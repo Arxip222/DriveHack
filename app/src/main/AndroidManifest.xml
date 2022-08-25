@@ -18,6 +18,11 @@
         android:theme="@style/Theme.Troika_Game"
         tools:targetApi="31">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/Theme.Troika_Game.NoActionBar" />
+        <activity
             android:name=".HelloActivity"
             android:exported="true">
             <intent-filter>
@@ -28,7 +33,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>
