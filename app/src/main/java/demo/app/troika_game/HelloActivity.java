@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +18,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class HelloActivity extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class HelloActivity extends AppCompatActivity {
     Button log, reg;
     FirebaseAuth auth;
     ProgressDialog dialog;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class HelloActivity extends AppCompatActivity {
         goToReg = findViewById(R.id.goToReg);
         auth = FirebaseAuth.getInstance();
         checkUser();
+        databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://drivehack-troika-login-reg-default-rtdb.firebaseio.com/");
 
         quiz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,13 +117,19 @@ public class HelloActivity extends AppCompatActivity {
             public void onSuccess(AuthResult authResult) {
                 dialog.dismiss();
                 FirebaseUser user = authResult.getUser();
-                Log.d("LOGG", user.getEmail());
+                databaseReference.child("users").child(user.getUid()).child("email").setValue(email);
+                databaseReference.child("users").child(user.getUid()).child("pass").setValue(pass);
+                databaseReference.child("users").child(user.getUid()).child("balance").setValue(0);
+                databaseReference.child("users").child(user.getUid()).child("id").setValue(user.getUid());
+                Intent intent = new Intent(HelloActivity.this, ProfileActivity.class);
+                startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 dialog.dismiss();
                 Toast.makeText(HelloActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                checkUser();
             }
         });
     }
@@ -129,13 +138,12 @@ public class HelloActivity extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(HelloActivity.this, "Успешная авторизация!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(HelloActivity.this, ProfileActivity.class);
-                startActivity(intent);
+                checkUser();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Toast.makeText(HelloActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

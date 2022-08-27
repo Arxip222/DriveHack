@@ -46,7 +46,8 @@ public class GetInfoAsync extends AsyncTask<Void, Void, Void> {
                         Place_item model = new Place_item();
                         model.name = obj.getString("name");
                         model.place = obj.getString("place");
-                        model.description = obj.getString("description");
+                        model.wr1 = obj.getString("wra");
+                        model.wr2 = obj.getString("wrb");
                         model.image = obj.getString("image");
                         list.add(model);
                     }
@@ -58,4 +59,3 @@ public class GetInfoAsync extends AsyncTask<Void, Void, Void> {
         return null;
     }
 }
-

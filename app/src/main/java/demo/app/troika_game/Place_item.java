@@ -2,14 +2,15 @@ package demo.app.troika_game;
 
 public class Place_item {
     int id;
-    String name, description, place, image;
+    String name, place, image, wr1, wr2;
 
-    public Place_item(int id, String name, String description, String place, String image) {
+    public Place_item(int id, String name, String place, String image, String wr1, String wr2) {
         this.id = id;
         this.name = name;
-        this.description = description;
         this.place = place;
         this.image = image;
+        this.wr1 = wr1;
+        this.wr2 = wr2;
     }
 
     public Place_item() {
@@ -31,14 +32,6 @@ public class Place_item {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getPlace() {
         return place;
     }
@@ -53,6 +46,22 @@ public class Place_item {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getWr1() {
+        return wr1;
+    }
+
+    public void setWr1(String wr1) {
+        this.wr1 = wr1;
+    }
+
+    public String getWr2() {
+        return wr2;
+    }
+
+    public void setWr2(String wr2) {
+        this.wr2 = wr2;
     }
 }
 

@@ -1,8 +1,11 @@
 package demo.app.troika_game;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +22,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityProfileBinding binding;
+    FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,20 +31,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        setSupportActionBar(binding.toolbar);
-
+        auth = FirebaseAuth.getInstance();
+        checkUser();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_profile);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -47,5 +42,13 @@ public class ProfileActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_profile);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void checkUser(){
+        FirebaseUser user = auth.getCurrentUser();
+        if (user == null){
+            Intent intent = new Intent(ProfileActivity.this, HelloActivity.class);
+            startActivity(intent);
+        }
     }
 }
